@@ -6,7 +6,7 @@ function init() {
   //const scoreDisplay = document.querySelector('.score') //will display the players score during in game play
   // game variables
   const width = 11
-  let snake = [3, 2, 1]
+  const snake = [3, 2, 1]
   //let score = 0 //score variable so the player can see their score 
   //let snakeSize = 
   // loop as many times as width times the width to fill the grid
@@ -31,6 +31,17 @@ function init() {
     squares[appleIndex].classList.add('apple')
   }
   apple()
+  // console.log(squares[snake[0]])
+
+  function snakeEatsApple() {
+    if (squares[snake[0]].classList.contains('apple')) {
+      squares[snake[0]].classList.remove('apple')
+      snake.unshift(snake[0])
+      console.log('apple')
+      apple()
+    }
+  
+  }
   console.log(dir)
   // places player at the starting position when grid has finished building and the game is starting again
   //squares[snake].classList.add('player')
@@ -57,77 +68,45 @@ function init() {
       console.log(dir)
       removeSnake()
       snake.pop()
-      snake.unshift(snake[0] + 1)
+      snake.unshift(snake[0] + width)
+      addSnake()
     }
     if (dir === 'up') {
       console.log(dir)
       removeSnake()
       snake.pop()
-      snake.unshift(snake[0] - 1)
+      snake.unshift(snake[0] - width)
+      addSnake()
     }
+    snakeEatsApple()
+
+    // let timerId = setTimeout(snakeMovement, 500)
   }
+  snakeMovement()
+
+  console.log(squares)
   // snakeMovement()
-  // let timerId = setInterval(snakeMovement, 500)
+  
 
   function handleKeyDown(e) {
     // console.log(dir)
     switch (e.keyCode) {
       case 39: if (dir !== 'left') dir = 'right'
-        snakeMovement()
-        // console.log(dir)
-
-        // if (snake % width < width - 1) {
-        //   snake++
-        //   setInterval(() => {
-        //     console.log('snake has moved')
-        //     console.log('move'())
-        //   }, 1000)
-        //   function moveright() { 
-        //     snake.speedX += 1
-        //   }
-        // }
+        
+        
         break
 
       case 37: if (dir !== 'right') dir = 'left'
-        snakeMovement()
-        // if (snake % width > 0) {
-        //   snake--
-        //   setInterval(() => {
-        //     console.log('snake has moved')
-        //     console.log('move'())
-        //   }, 1000)
-
-        //   function moveleft() {
-        //     snake.speedX -= 1
-        //   }
-        // }
+        
+       
         break
       case 40: if (dir !== 'up') dir = 'down'
-        snakeMovement()
-        // if (snake + width < width * width) {
-        //   snake += width
-        //   setInterval(() => {
-        //     console.log('snake has moved')
-        //     console.log('move'())
-        //   }, 1000)
-        //   function movedown() {
-        //     snake.speedY += 1
-        //   }
-        // }
+        
+        
         break
       case 38: if (dir !== 'down') dir = 'up'
-        snakeMovement()
-        // if (snake - width >= 0) {
-        //   snake -= width
-        //   setInterval(() => {
-        //     console.log('snake has moved')
-        //     console.log('move'())
-        //   }, 1000)
-        //   function moveUp() {
-        //     snake.speedY -= 1
-        //   }
-        // }
-
+        
+        
         break
       default:
     }
