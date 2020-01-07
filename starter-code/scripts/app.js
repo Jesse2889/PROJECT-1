@@ -40,7 +40,7 @@ function init() {
       console.log('apple')
       apple()
     }
-  
+
   }
   console.log(dir)
   // places player at the starting position when grid has finished building and the game is starting again
@@ -80,33 +80,40 @@ function init() {
     }
     snakeEatsApple()
 
-    // let timerId = setTimeout(snakeMovement, 500)
+    //let timerId = setTimeout(snakeMovement, 500)
   }
   snakeMovement()
 
   console.log(squares)
   // snakeMovement()
-  
+
 
   function handleKeyDown(e) {
     // console.log(dir)
     switch (e.keyCode) {
       case 39: if (dir !== 'left') dir = 'right'
-        
-        
-        break
+      
+        //   if (snake % width < width - 1) {
+        //     playerIndex++
 
+        break
       case 37: if (dir !== 'right') dir = 'left'
-        
-       
+      //   if (snake % width > 0) {
+      //     playerIndex--
+      //   }
+
         break
       case 40: if (dir !== 'up') dir = 'down'
-        
-        
+      //   if (snake + width < width * width) {
+      //     playerIndex += width 
+      //   }
+
         break
       case 38: if (dir !== 'down') dir = 'up'
-        
-        
+      //   if (snake - width >= 0) {
+      //     playerIndex -= width
+      //   } 
+
         break
       default:
     }
@@ -141,3 +148,24 @@ window.addEventListener('DOMContentLoaded', init)
 // may need to add a avriable/function/event listener that starts the countdown 
 //once the keycode (37,38,39 or 40) is pressed game 
 // function
+// case 39:
+//   if (playerIndex % width < width - 1) {
+//     playerIndex++
+//   }
+//   break
+// case 37:
+//   if (playerIndex % width > 0) {
+//     playerIndex--
+//   }
+//   break
+// case 40:
+//   if (playerIndex + width < width * width) {
+//     playerIndex += width 
+//   }
+//   break
+// case 38:
+//   if (playerIndex - width >= 0) {
+//     playerIndex -= width
+//   } 
+//   break
+// default:
