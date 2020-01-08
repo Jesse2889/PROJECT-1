@@ -10,10 +10,11 @@ function init() {
   //let score = 0 //score variable so the player can see their score 
   //let snakeSize = 
   // loop as many times as width times the width to fill the grid
-  Array(width * width).join('.').split('.').forEach(() => {
+  Array(width * width).join('.').split('.').forEach((i,ind) => {
     // create 
     const square = document.createElement('div')
     square.classList.add('grid-item')
+    square.innerHTML = ind + "-" + ind % width
     squares.push(square)
     grid.appendChild(square)
   })
@@ -31,7 +32,7 @@ function init() {
     squares[appleIndex].classList.add('apple')
   }
   apple()
-  // console.log(squares[snake[0]])
+   console.log(squares[snake[0]])
 
   function snakeEatsApple() {
     if (squares[snake[0]].classList.contains('apple')) {
@@ -94,24 +95,24 @@ function init() {
       case 39: if (dir !== 'left') dir = 'right'
       
         //   if (snake % width < width - 1) {
-        //     playerIndex++
+        //     snake++
 
         break
       case 37: if (dir !== 'right') dir = 'left'
       //   if (snake % width > 0) {
-      //     playerIndex--
+      //     snake--
       //   }
 
         break
       case 40: if (dir !== 'up') dir = 'down'
       //   if (snake + width < width * width) {
-      //     playerIndex += width 
+      //     snake += width 
       //   }
 
         break
       case 38: if (dir !== 'down') dir = 'up'
       //   if (snake - width >= 0) {
-      //     playerIndex -= width
+      //     snake -= width
       //   } 
 
         break
@@ -149,23 +150,25 @@ window.addEventListener('DOMContentLoaded', init)
 //once the keycode (37,38,39 or 40) is pressed game 
 // function
 // case 39:
-//   if (playerIndex % width < width - 1) {
-//     playerIndex++
+//   if (snake % width < width - 1) {
+//     snake++
 //   }
 //   break
 // case 37:
-//   if (playerIndex % width > 0) {
-//     playerIndex--
+//   if (snake % width > 0) {
+//     snake--
 //   }
 //   break
 // case 40:
 //   if (playerIndex + width < width * width) {
-//     playerIndex += width 
+//     snake += width 
 //   }
 //   break
 // case 38:
 //   if (playerIndex - width >= 0) {
-//     playerIndex -= width
+//     snake -= width
 //   } 
 //   break
 // default:
+//if (snake >= squares.length) { 
+//snake = 0 
