@@ -3,6 +3,9 @@ function init() {
   const grid = document.querySelector('.grid')
   const squares = []
   let dir = null
+  let pace = 500
+  let timerId = setInterval(snakeMovement, pace)
+
   //const scoreDisplay = document.querySelector('.score') //will display the players score during in game play
   // game variables
   const width = 11
@@ -33,13 +36,24 @@ function init() {
   apple()
   console.log(squares[snake[0]])
 
+
   function snakeEatsApple() {
     if (squares[snake[0]].classList.contains('apple')) {
       squares[snake[0]].classList.remove('apple')
+      //snake.push('2', '2','2')
       snake.unshift(snake[0])
-      console.log('apple')
+      //console.log('apple')
       apple()
+      snakeMovement()
+      increaseSpeed()
+
     }
+
+  }
+  function increaseSpeed() {
+    
+    pace = pace - 100
+    timerId = setTimeout(snakeMovement, pace)
 
   }
   console.log(dir)
@@ -47,34 +61,34 @@ function init() {
   //squares[snake].classList.add('player')
 
   function snakeMovement() {
-    console.log(dir)
+    //console.log(dir)
     if (dir === 'right') {
       console.log(dir)
       removeSnake()
       if (snake[0] % width === 10) {
-        snake[0] -= 9
+        snake[0] -= 10
       }
       snake.pop()
       snake.unshift(snake[0] + 1)
       addSnake()
-      console.log(snake)
+      //console.log(snake)
     }
     if (dir === 'left') {
-      console.log(dir)
+      //console.log(dir)
       removeSnake()
-      if (snake[0] % width === 0 ) {
+      if (snake[0] % width === 0) {
         snake[0] += 9
       }
 
       snake.pop()
       snake.unshift(snake[0] - 1)
       addSnake()
-      console.log(snake)
+      //console.log(snake)
     }
     if (dir === 'down') {
-      console.log(dir)
+      //console.log(dir)
       removeSnake()
-      if (snake[0] >= 110 ) {
+      if (snake[0] >= 110) {
         snake[0] -= 110
       }
       snake.pop()
@@ -82,9 +96,9 @@ function init() {
       addSnake()
     }
     if (dir === 'up') {
-      console.log(dir)
+      //console.log(dir)
       removeSnake()
-      if (snake[0] <= 10 ) {
+      if (snake[0] <= 10) {
         snake[0] += 110
       }
       snake.pop()
@@ -92,40 +106,43 @@ function init() {
       addSnake()
     }
     snakeEatsApple()
-
-    let timerId = setTimeout(snakeMovement, 500)
+    hit()
+    //snakeMovement()
   }
-  snakeMovement()
-
   console.log(squares)
   // snakeMovement()
 
+  function hit() {
+    if (snake.slice(1).includes(snake[0])) {
+      console.log('hit')
+      gameOver()
+    }
+
+  }
+  function gameOver() {
+    console.log('game over')
+    clearInterval(timerId)
+    grid.innerHTML = ''
+    grid.innerHTML = '<p>game over</p>'
+  }
 
   function handleKeyDown(e) {
     // console.log(dir)
     switch (e.keyCode) {
       case 39: if (dir !== 'left') dir = 'right'
 
-        //   if (snake % width < width - 1) {
-        //     snake++
-
+       
         break
       case 37: if (dir !== 'right') dir = 'left'
-        //   if (snake % width > 0) {
-        //     snake--
-        //   }
+       
 
         break
       case 40: if (dir !== 'up') dir = 'down'
-        //   if (snake + width < width * width) {
-        //     snake += width 
-        //   }
+        
 
         break
       case 38: if (dir !== 'down') dir = 'up'
-        //   if (snake - width >= 0) {
-        //     snake -= width
-        //   } 
+        
 
         break
       default:

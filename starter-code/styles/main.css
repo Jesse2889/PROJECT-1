@@ -44,3 +44,7 @@ div.grid-item.player {
   background-repeat: no-repeat;
   background-size: contain;
 }
+body > div > p {
+  font-size: 30px;
+  color: white;
+}
