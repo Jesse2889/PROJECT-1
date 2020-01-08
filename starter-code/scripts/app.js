@@ -8,13 +8,12 @@ function init() {
   const width = 11
   const snake = [3, 2, 1]
   //let score = 0 //score variable so the player can see their score 
-  //let snakeSize = 
   // loop as many times as width times the width to fill the grid
-  Array(width * width).join('.').split('.').forEach((i,ind) => {
+  Array(width * width).join('.').split('.').forEach((i, ind) => {
     // create 
     const square = document.createElement('div')
     square.classList.add('grid-item')
-    square.innerHTML = ind + "-" + ind % width
+    square.innerHTML = ind + '-' + ind % width
     squares.push(square)
     grid.appendChild(square)
   })
@@ -32,7 +31,7 @@ function init() {
     squares[appleIndex].classList.add('apple')
   }
   apple()
-   console.log(squares[snake[0]])
+  console.log(squares[snake[0]])
 
   function snakeEatsApple() {
     if (squares[snake[0]].classList.contains('apple')) {
@@ -52,6 +51,9 @@ function init() {
     if (dir === 'right') {
       console.log(dir)
       removeSnake()
+      if (snake[0] % width === 10) {
+        snake[0] -= 9
+      }
       snake.pop()
       snake.unshift(snake[0] + 1)
       addSnake()
@@ -60,6 +62,10 @@ function init() {
     if (dir === 'left') {
       console.log(dir)
       removeSnake()
+      if (snake[0] % width === 0 ) {
+        snake[0] += 9
+      }
+
       snake.pop()
       snake.unshift(snake[0] - 1)
       addSnake()
@@ -68,6 +74,9 @@ function init() {
     if (dir === 'down') {
       console.log(dir)
       removeSnake()
+      if (snake[0] >= 110 ) {
+        snake[0] -= 110
+      }
       snake.pop()
       snake.unshift(snake[0] + width)
       addSnake()
@@ -75,13 +84,16 @@ function init() {
     if (dir === 'up') {
       console.log(dir)
       removeSnake()
+      if (snake[0] <= 10 ) {
+        snake[0] += 110
+      }
       snake.pop()
       snake.unshift(snake[0] - width)
       addSnake()
     }
     snakeEatsApple()
 
-    //let timerId = setTimeout(snakeMovement, 500)
+    let timerId = setTimeout(snakeMovement, 500)
   }
   snakeMovement()
 
@@ -93,27 +105,27 @@ function init() {
     // console.log(dir)
     switch (e.keyCode) {
       case 39: if (dir !== 'left') dir = 'right'
-      
+
         //   if (snake % width < width - 1) {
         //     snake++
 
         break
       case 37: if (dir !== 'right') dir = 'left'
-      //   if (snake % width > 0) {
-      //     snake--
-      //   }
+        //   if (snake % width > 0) {
+        //     snake--
+        //   }
 
         break
       case 40: if (dir !== 'up') dir = 'down'
-      //   if (snake + width < width * width) {
-      //     snake += width 
-      //   }
+        //   if (snake + width < width * width) {
+        //     snake += width 
+        //   }
 
         break
       case 38: if (dir !== 'down') dir = 'up'
-      //   if (snake - width >= 0) {
-      //     snake -= width
-      //   } 
+        //   if (snake - width >= 0) {
+        //     snake -= width
+        //   } 
 
         break
       default:
