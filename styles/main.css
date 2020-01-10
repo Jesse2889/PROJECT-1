@@ -13,13 +13,13 @@ h1 {
   align-items: center;
   justify-content: center; */
   font-family: "BenguiatITCW01-BoldCn";
-  font-size: 100px;
+  font-size: 50px;
   color:white;
 }
 .score{
   color: red;
   font-family: "BenguiatITCW01-BoldCn";
-  font-size: 70px;
+  font-size: 60px;
 }
 
 h2 {
@@ -28,11 +28,20 @@ h2 {
   font-size: 22px;
 }
 
-body {
+main, footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
+
+
+
+/* body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
 
 div.grid {
   width: 440px;
@@ -48,7 +57,6 @@ div.grid-item {
   border: 1px dashed rgb(40, 40, 107);
 }
 .apple {
- 
   background-color:green;
   background-size: 40px, 40px;
 }
