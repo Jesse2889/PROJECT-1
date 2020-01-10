@@ -2,20 +2,29 @@
   box-sizing: border-box;
 }
 
-html, body {
+body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background-color: skyblue;
+  background-image: url('../assets/background-snake.jpg');
 }
 h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  font-family: "BenguiatITCW01-BoldCn";
+  font-size: 100px;
+  color:white;
 }
 .score{
   color: red;
+  font-family: "BenguiatITCW01-BoldCn";
+}
+
+h2 {
+  color:white;
+  font-family: "BenguiatITCW01-BoldCn";
+  font-size: 22px;
 }
 
 body {
@@ -29,16 +38,43 @@ div.grid {
   height: 440px;
   display: flex;
   flex-wrap: wrap;
-}
+  background:grey;
+  }
 
 div.grid-item {
   width: 40px;
   height: 40px;
-  border: 1px dashed black;
+  border: 1px dashed blue;
 }
 .apple {
-  background-color: red;
+ 
+  background-color: brown;
+  background-size: 40px, 40px;
 }
+button {
+    box-shadow:inset 0px 1px 0px 0px #bee2f9;
+    background:linear-gradient(to bottom, #2e8cc7 5%, #022a4d 100%);
+    background-color:#2e8cc7;
+    border-radius:6px;
+    border:1px solid #3866a3;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family: "BenguiatITCW01-BoldCn";
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #7cacde;
+  }
+.start:hover {
+    background:linear-gradient(to bottom, #022a4d 5%, #2e8cc7 100%);
+    background-color:#022a4d;
+  }
+.start:active {
+    position:relative;
+    top:1px;
+  }
 
 div.grid-item.player {
   /* background-image: url('../assets/snake\ image.jpeg');
@@ -50,4 +86,5 @@ div.grid-item.player {
 body > div > p {
   font-size: 30px;
   color: white;
+  font-family: "BenguiatITCW01-BoldCn";
 }
