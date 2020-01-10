@@ -12,14 +12,12 @@ function init() {
   let snake = [62, 61, 60]
   let score = 0 //score variable so the player can see their score 
  
-  
-
   function newGrid() {
-    Array(width * width).join('.').split('.').forEach((i, ind) => {
+    Array(width * width).join('.').split('.').forEach(() => {
       // create 
       const square = document.createElement('div')
       square.classList.add('grid-item')
-      square.innerHTML = ind + '-' + ind % width
+      //square.innerHTML = ind + '-' + ind % width
       squares.push(square)
       grid.appendChild(square)
     })
