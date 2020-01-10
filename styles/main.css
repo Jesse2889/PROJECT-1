@@ -48,7 +48,7 @@ div.grid {
   height: 440px;
   display: flex;
   flex-wrap: wrap;
-  background: rgb(40, 40, 107);
+  background:rgb(40, 40, 61);
   }
 
 div.grid-item {
@@ -93,7 +93,9 @@ div.grid-item.player {
   background-size: contain;
 }
 body > div > p {
-  font-size: 32px;
-  color: white;
+  font-size: 100px;
+  color: red;
   font-family: "BenguiatITCW01-BoldCn";
+  text-align: center;
 }
+

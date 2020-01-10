@@ -49,7 +49,7 @@ function init() {
       snake.unshift(snake[0])
       //console.log('apple')
       apple()
-      score += 100
+      score += 1150
       pace -= 100
       snakeMovement()
       scoreDisplay.innerHTML = score
@@ -139,7 +139,7 @@ function init() {
     
     clearInterval(timerId)
     grid.innerHTML = ''
-    grid.innerHTML = '<p>game over</p>'
+    grid.innerHTML = '<h2>GAME OVER! HIT START TO PLAY AGAIN</h2>'
     //reset()
     
   }
