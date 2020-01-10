@@ -9,9 +9,9 @@ body {
   background-image: url('../assets/background-snake.jpg');
 }
 h1 {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   font-family: "BenguiatITCW01-BoldCn";
   font-size: 100px;
   color:white;
@@ -19,6 +19,7 @@ h1 {
 .score{
   color: red;
   font-family: "BenguiatITCW01-BoldCn";
+  font-size: 70px;
 }
 
 h2 {
@@ -38,17 +39,17 @@ div.grid {
   height: 440px;
   display: flex;
   flex-wrap: wrap;
-  background:grey;
+  background: rgb(40, 40, 107);
   }
 
 div.grid-item {
   width: 40px;
   height: 40px;
-  border: 1px dashed blue;
+  border: 1px dashed rgb(40, 40, 107);
 }
 .apple {
  
-  background-color: brown;
+  background-color:green;
   background-size: 40px, 40px;
 }
 button {
@@ -79,7 +80,7 @@ button {
 div.grid-item.player {
   /* background-image: url('../assets/snake\ image.jpeg');
    */
-  background-color: green;
+  background-color:brown;
   background-repeat: no-repeat;
   background-size: contain;
 }

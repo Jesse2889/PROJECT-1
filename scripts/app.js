@@ -1,5 +1,5 @@
 function init() {
-  //  dom variables
+  //  dom and game variables
   const grid = document.querySelector('.grid')
   const btn = document.querySelector('.start')
   const scoreDisplay = document.querySelector('.score')
@@ -8,23 +8,11 @@ function init() {
   let pace = 500
   // eslint-disable-next-line prefer-const
   let timerId = null
-  //let gameInPlay = null
-
-
-  //const scoreDisplay = document.querySelector('.score') //will display the players score during in game play
-  // game variables
   const width = 11
   let snake = [62, 61, 60]
   let score = 0 //score variable so the player can see their score 
-  // loop as many times as width times the width to fill the grid
-  // Array(width * width).join('.').split('.').forEach((i, ind) => {
-  //   // create 
-  //   const square = document.createElement('div')
-  //   square.classList.add('grid-item')
-  //   square.innerHTML = ind + '-' + ind % width
-  //   squares.push(square)
-  //   grid.appendChild(square)
-  // })
+ 
+  
 
   function newGrid() {
     Array(width * width).join('.').split('.').forEach((i, ind) => {
@@ -70,7 +58,7 @@ function init() {
     }
 
   }
-
+  //function built to start game
   function startGame() {
     // grid.innerHTML = ''
     newGrid()
@@ -85,7 +73,7 @@ function init() {
   console.log(dir)
   // places player at the starting position when grid has finished building and the game is starting again
   //squares[snake].classList.add('player')
-
+  //function built for the movment of the snake
   function snakeMovement() {
     //console.log(dir)
     console.log('snakeMove')
